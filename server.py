@@ -1,56 +1,3 @@
- '''
-app = FastAPI()
-
-class Query(BaseModel):
-    message: str
-
-@app.post("/ask")
-async def ask_agent(query: Query):
-    response = ask_question(query.message)
-    return {"reply": response}
-'''
-'''
-from fastapi import FastAPI, HTTPException
-from fastapi.responses import JSONResponse
-from pydantic import BaseModel
-from app_main import ask_question  
-
-app = FastAPI()
-
-class Query(BaseModel):
-    message: str
-
-@app.post("/ask")
-async def ask_agent(query: Query):
-    try:
-        response = ask_question(query.message)
-
-        
-        if not response:
-            return JSONResponse(
-                status_code=404,
-                content={"status": False , "message": "No answer found"}
-            )
-
-        
-        if "maximum retries" in response.lower():
-            return JSONResponse(
-                status_code=429,
-                content={"status": False, "message": "Maximum retry limit reached"}
-            )
-
-        
-        return JSONResponse(
-            status_code=200,
-            content={"status": True,"message":"data fetched successfully","data":response}
-        )
-
-    except Exception as e:
-        return JSONResponse(
-            status_code=500,
-            content={"status":False , "message": f"Internal Server Error: {str(e)}"}
-        )
-'''
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
@@ -114,4 +61,5 @@ async def ask_agent(query: Query):
                 "data": [{"answer": None}]
             }
         )
+
 
