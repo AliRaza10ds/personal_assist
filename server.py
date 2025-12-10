@@ -1,7 +1,4 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
-from app21 import ask_question  
-'''
+ '''
 app = FastAPI()
 
 class Query(BaseModel):
@@ -57,7 +54,7 @@ async def ask_agent(query: Query):
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
-from app_main import ask_question  
+from app21 import ask_question  
 
 app = FastAPI()
 
@@ -117,3 +114,4 @@ async def ask_agent(query: Query):
                 "data": [{"answer": None}]
             }
         )
+
