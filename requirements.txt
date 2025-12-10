@@ -1,0 +1,14 @@
+pandas
+python-dotenv
+requests
+langchain-core
+langchain-chroma
+langchain-openai
+langchain-text-splitters
+langchain-classic
+langchain-community
+langchain-google-genai
+langchain
+fastapi
+uvicorn
+pydantic
